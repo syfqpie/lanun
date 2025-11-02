@@ -26,6 +26,7 @@ dist-ssr
 *.sw?
 *.turbo
 dist
+.lanun
 
 # Etc
 _misc
