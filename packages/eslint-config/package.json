@@ -2,6 +2,9 @@
   "name": "@lanun/eslint-config",
   "description": "Base eslint configurations",
   "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "version": "0.0.1",
   "type": "module",
   "scripts": {
