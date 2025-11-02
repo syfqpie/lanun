@@ -30,19 +30,19 @@ jobs:
       - run: npm install -g pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm run build:react-kit
-      - run: npm publish
+      - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
-  deploy-vercel:
-    needs: publish-npm
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - run: npm install -g vercel
-      - run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
-      - run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
-      - run: vercel deploy --prod --token=${{ secrets.VERCEL_TOKEN }}
+  # deploy-vercel:
+  #   needs: publish-npm
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: actions/setup-node@v4
+  #       with:
+  #         node-version: 20
+  #     - run: npm install -g vercel
+  #     - run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+  #     - run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+  #     - run: vercel deploy --prod --token=${{ secrets.VERCEL_TOKEN }}
