@@ -2,17 +2,23 @@
   "name": "@lanun/monorepo",
   "version": "1.0.0",
   "scripts": {
+    "gen:react-kit:component": "turbo gen react-kit-component",
     "build": "turbo run build",
+    "build:react-kit": "pnpm build -F @lanun/react-kit",
     "dev": "turbo run dev",
+    "dev:react-kit-docs": "pnpm dev -F @lanun/react-docs",
     "lint": "turbo run lint",
+    "lint:react-kit": "pnpm lint -F @lanun/react-kit",
     "check-types": "turbo run check-types",
-    "test": "turbo run test"
+    "test": "turbo run test",
+    "test:react-kit": "pnpm test -F @lanun/react-kit"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "packageManager": "pnpm@10.20.0",
   "devDependencies": {
+    "@turbo/gen": "^2.6.0",
     "prettier": "^3.6.2",
     "turbo": "^2.6.0",
     "typescript": "^5.8.2"
