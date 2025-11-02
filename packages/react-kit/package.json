@@ -1,0 +1,108 @@
+{
+  "name": "@lanun/react-kit",
+  "description": "React toolkit for building React apps",
+  "private": false,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev:docs": "storybook dev -p 6006",
+    "dev": "storybook dev --docs -p 6007",
+    "build": "tsup",
+    "build:vite": "tsc -b && vite build",
+    "build:docs": "storybook build --docs",
+    "test": "vitest",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "bump:patch": "pnpm version patch -m \"build: %s\"",
+    "bump:minor": "pnpm version minor -m \"build: %s\"",
+    "bump:major": "pnpm version major -m \"build: %s\"",
+    "build-storybook": "storybook build",
+    "yalc:push": "pnpm build && yalc publish --push"
+  },
+  "license": "MIT",
+  "homepage": "https://react-kit.cendol.dev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/syfqpie/react-kit"
+  },
+  "bugs": {
+    "url": "https://github.com/syfqpie/lanun/issues"
+  },
+  "keywords": [
+    "react",
+    "ui",
+    "components",
+    "vite",
+    "kit"
+  ],
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "style": "dist/index.css",
+  "exports": {
+    ".": {
+      "style": "./dist/index.css"
+    },
+    "./components": {
+      "types": "./dist/components/index.d.ts",
+      "import": "./dist/components/index.js",
+      "require": "./dist/components/index.js"
+    },
+    "./hooks": {
+      "types": "./dist/hooks/index.d.ts",
+      "import": "./dist/hooks/index.js",
+      "require": "./dist/hooks/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "dependencies": {
+    "@formkit/auto-animate": "^0.8.2",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.487.0"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "^3.2.6",
+    "@lanun/eslint-config": "workspace:*",
+    "@storybook/addon-essentials": "^8.6.12",
+    "@storybook/addon-interactions": "^8.6.12",
+    "@storybook/blocks": "^8.6.12",
+    "@storybook/manager-api": "^8.6.12",
+    "@storybook/react": "^8.6.12",
+    "@storybook/react-vite": "^8.6.12",
+    "@storybook/theming": "^8.6.12",
+    "@tailwindcss/postcss": "^4.1.16",
+    "@tailwindcss/vite": "^4.0.6",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.2.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^22.13.4",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^9.39.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-turbo": "^2.6.0",
+    "globals": "^15.14.0",
+    "jsdom": "^26.0.0",
+    "postcss": "^8.5.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "rollup": "^4.34.7",
+    "storybook": "^8.6.12",
+    "tsup": "^8.5.0",
+    "typescript": "~5.7.3",
+    "typescript-eslint": "^8.46.2",
+    "vite": "^6.1.0",
+    "vite-plugin-dts": "^4.5.0",
+    "vitest": "^3.0.5"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0",
+    "tailwindcss": "^4.0.6"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    /* language, emit */
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+    "lib": ["DOM", "ES2022"],
+    "allowJs": false,
+
+    /* paths, stuctures */
+    "baseUrl": ".",
+    "rootDir": ".",
+    "outDir": "dist",
+
+    /* type safety */
+    "strict": true,
+    "noImplicitAny": true,
+    "noUncheckedIndexedAccess": true,
+    "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+
+    /* interop */
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+
+    /* source maps */
+    "sourceMap": true,
+    /* alias */
+    // "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"],
+      "@/lib/*": ["src/*"]
+    }
+  },
+  "exclude": ["dist", "node_modules"]
+}
