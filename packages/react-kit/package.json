@@ -4,6 +4,9 @@
   "private": false,
   "version": "0.0.1",
   "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "dev": "storybook dev --docs -p 6007",
     "build": "tsup",
