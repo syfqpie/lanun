@@ -1,0 +1,47 @@
+import { ArgTypes, Canvas, Meta, Story } from '@storybook/blocks'
+import Card from './Card'
+import * as CardStories from './Card.stories'
+
+<Meta of={CardStories} />
+
+# Card
+
+The `Card` component is a flexible container used to group related content in a clean layout.
+
+## Import
+
+```tsx
+import { Card } from '@lanun/react-kit/components'
+```
+
+## Usages
+
+### Basic
+
+<Canvas
+    of={CardStories.Basic}
+    sourceState='none' />
+
+```tsx
+<Card>
+    Hello world
+</Card>
+```
+
+## Test automation tag
+
+To assist with automated testing, add a `testId` attribute to the `Card`.
+
+<Canvas of={CardStories.Basic} />
+
+Will be rendered as:
+
+```html
+<div data-testid="ta-card">
+    content
+</div>
+```
+
+## API
+
+<ArgTypes />

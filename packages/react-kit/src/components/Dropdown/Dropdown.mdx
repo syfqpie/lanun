@@ -1,0 +1,86 @@
+import { ArgTypes, Canvas, Meta, Story } from '@storybook/blocks'
+import Dropdown from './Dropdown'
+import * as DropdownStories from './Dropdown.stories'
+
+<Meta of={DropdownStories} />
+
+# Dropdown
+
+The `Dropdown` component is a menu that displays a list of options when triggered. 
+
+## Import
+
+```tsx
+import { Dropdown } from '@lanun/react-kit/components'
+```
+
+## Usages
+
+### Basic
+
+<Canvas
+    of={DropdownStories.Basic}
+    sourceState='none' />
+
+```tsx
+<Dropdown
+    label='Fruit'
+    options={[
+        { label: 'Option 1', value: 'option1' },
+        { label: 'Option 2', value: 'option2' },
+        { label: 'Option 3', value: 'option3' },
+    ]}
+    onChange={(val) => { console.log(`Option ${ val } clicked`)} />
+```
+
+### Sizes
+
+The `size` prop controls the size of the button. It can be one of the following:
+- `xs`: An extra small button
+- `sm`: A smaller button, suitable for more compact UI layouts.
+- `md`: A medium button which is the default button size.
+- `lg`: A larger button for more prominent actions.
+
+<Canvas of={DropdownStories.Size} />
+
+## Test automation tag
+
+To assist with automated testing, add a `testId` attribute to the `Dropdown`.
+
+<Canvas of={DropdownStories.Basic} />
+
+Will be rendered as:
+
+```html
+<div data-testid="ta-dropdown">
+    <button data-testid="ta-dropdown-toggle">
+        <span data-testid="ta-dropdown-label">...</span>
+        <svg></svg>
+    </button>
+    <div>
+        <ul data-testid="ta-dropdown-dropdown">
+            <li>
+                <a data-testid="ta-dropdown-option-0">...</a>
+            </li>
+            <li>
+                <a data-testid="ta-dropdown-option-1">...</a>
+            </li>
+        </ul>
+    </div>
+</div>
+```
+
+## API
+
+<ArgTypes />
+
+## DropdownItem
+
+Each item in the items array should follow this structure:
+
+```ts
+interface DropdownItem {
+    label: string;
+    value: string | number;
+}
+```

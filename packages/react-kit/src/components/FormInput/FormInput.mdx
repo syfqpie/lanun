@@ -1,0 +1,69 @@
+import { ArgTypes, Canvas, Meta, Story } from '@storybook/blocks'
+import FormInput from './FormInput'
+import * as FormInputStories from './FormInput.stories'
+
+<Meta of={FormInputStories} />
+
+# FormInput
+
+`FormInput` is a customizable input component that standardizes `input` behavior and styling while ensuring a consistent user experience.
+
+## Import
+
+```tsx
+import { FormInput } from '@lanun/react-kit/components'
+```
+
+## Usages
+
+### Basic
+
+<Canvas
+    of={FormInputStories.Basic}
+    sourceState='none' />
+
+```tsx
+<FormInput
+    label='Name'
+    placeholder='Enter name'
+    value={value} />
+```
+
+### Error appearance and messages
+
+If the `hasError` prop is set to `true`, the input will switch to the `error` variant.
+If `errorMessages` is also provided, the corresponding error messages will be displayed.
+
+<Canvas of={FormInputStories.ErrorStateWithMessage} />
+
+### Disabled state
+
+To apply the disabled styling and prevent user interaction, set the `disabled` prop to `true`.
+
+<Canvas of={FormInputStories.Disabled} />
+
+### Styling form wrapper
+
+The `groupClassName` prop allows you to apply additional styling to the container that wraps the input field and label.
+
+<Canvas of={FormInputStories.WithGroupClassName} />
+
+## Test automation tag
+
+To assist with automated testing, add a `testId` attribute to the `FormInput`.
+
+<Canvas of={FormInputStories.Basic} />
+
+Will be rendered as:
+
+```html
+<div data-testid="ta-input-form">
+    <label data-testid="ta-input-label">Name</label>
+    <input placeholder="Enter name" data-testid="ta-input-input">
+    <p data-testid="ta-input-error-msg-0">Field required</p>
+</div>
+```
+
+## API
+
+<ArgTypes />

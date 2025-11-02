@@ -1,0 +1,106 @@
+import { ArgTypes, Canvas, Meta, Story } from '@storybook/blocks'
+import Button from './Button'
+import * as ButtonStories from './Button.stories'
+
+<Meta of={ButtonStories} />
+
+# Button
+
+The `Button` component is a customizable button element that extends the default HTML `<button>` element. It inherits all the default properties of a `<button>` and adds custom functionality through additional props.
+
+## Import
+
+```tsx
+import { Button } from '@lanun/react-kit/components'
+```
+
+## Usages
+
+### Basic
+
+<Canvas
+    of={ButtonStories.Basic}
+    sourceState='none' />
+
+```tsx
+<Button onClick={ () => { console.log('Button clicked') } }>
+    Click me
+</Button>
+```
+
+### Color variants 
+
+The `variant` prop defines the button's visual style. It can be one of the following:
+- `primary`: The default button style.
+- `success`: A style used for positive actions, often with a green background or border.
+- `error`: A style that indicates a negative or destructive action, often with a red background or border.
+
+<Canvas of={ButtonStories.Variant} />
+
+### Appearances
+
+The `appearance` prop defines the button's style, determining whether it has a solid background or an outline:
+- `solid`: The default appearance, with a solid background color.
+- `outline`: A button with a border and transparent background.
+
+<Canvas of={ButtonStories.Outline} />
+
+### Sizes
+
+The `size` prop controls the size of the button. It can be one of the following:
+- `xs`: An extra small button
+- `sm`: A smaller button, suitable for more compact UI layouts.
+- `md`: A medium button which is the default button size.
+- `lg`: A larger button for more prominent actions.
+
+<Canvas of={ButtonStories.Size} />
+
+### Disabled state
+
+To apply the disabled styling and prevent user interaction, set the `disabled` prop to `true`.
+
+<Canvas of={ButtonStories.Disabled} />
+
+### Full width
+
+If `full` prop is set to `true`, the button will stretch to fill the full width of its container.
+
+<Canvas of={ButtonStories.Full} />
+
+### Text alignment
+
+The `alignment` prop controls the alignment of the content inside the button:
+- `start`: Aligns the content to the left of the button.
+- `center`: Centers the content (default behavior).
+- `end`: Aligns the content to the right of the button.
+
+<Canvas of={ButtonStories.Alignment} />
+
+## Test automation tag
+
+To assist with automated testing, add a `testId` attribute to the `Button`.
+
+<Canvas of={ButtonStories.Basic} />
+
+Will be rendered as:
+
+```html
+<button data-testid="ta-btn">
+    Button
+</button>
+```
+
+## API
+
+<ArgTypes />
+
+## Inherited default props
+
+The `Button` component inherits the standard HTML `<button>` attributes, including but not limited to:
+
+- `type` (default: `button`): Specifies the button type (e.g., `submit`, `reset`, `button`).
+- `name`: Defines the name of the button.
+- `value`: Specifies the value associated with the button in forms.
+- `aria-*`: Any `aria` attributes for accessibility (e.g., `aria-label`, `aria-hidden`).
+
+This allows you to pass standard button props seamlessly into the `Button` component.

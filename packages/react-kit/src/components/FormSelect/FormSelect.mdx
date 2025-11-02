@@ -1,0 +1,97 @@
+import { ArgTypes, Canvas, Meta, Story } from '@storybook/blocks'
+import FormSelect from './FormSelect'
+import * as FormSelectStories from './FormSelect.stories'
+
+<Meta of={FormSelectStories} />
+
+# FormSelect
+
+`FormSelect` is a customizable select component that standardizes `select` behavior and styling while ensuring a consistent user experience.
+
+## Import
+
+```tsx
+import { FormSelect } from '@lanun/react-kit/components'
+```
+
+## Usages
+
+### Basic
+
+<Canvas
+    of={FormSelectStories.Basic}
+    sourceState='none' />
+
+```tsx
+<FormSelect
+    label='Fruit'
+    placeholder='Select fruit'
+    value={value}
+    options={[
+        { label: 'Option 1', value: 'option1' },
+        { label: 'Option 2', value: 'option2' },
+        { label: 'Option 3', value: 'option3' },
+    ]}
+    onChange={(e) => {setValue(e.value)}} />
+```
+
+### Error appearance and messages
+
+If the `hasError` prop is set to `true`, the select will switch to the `error` variant.
+If `errorMessages` is also provided, the corresponding error messages will be displayed.
+
+<Canvas of={FormSelectStories.ErrorStateWithMessage} />
+
+### Disabled state
+
+To apply the disabled styling and prevent user interaction, set the `disabled` prop to `true`.
+
+<Canvas of={FormSelectStories.Disabled} />
+
+### Styling form wrapper
+
+The `groupClassName` prop allows you to apply additional styling to the container that wraps the select field and label.
+
+<Canvas of={FormSelectStories.WithGroupClassName} />
+
+### Test automation tag
+
+To assist with automated testing, add a `testId` attribute to the `FormSelect`.
+
+<Canvas of={FormSelectStories.Basic} />
+
+Will be rendered as:
+
+```html
+<div data-testid="ta-select-form">
+    <label data-testid="ta-select-label">Fruit</label>
+    <button data-testid="ta-select-toggler">
+        <span data-testid="ta-select-selected-label">
+            Select fruit
+        </span>
+    </button>
+    <div>
+        <ul data-testid="ta-select-options-container">
+            <li>
+                <button data-testid="ta-select-option-0">...</button>
+            </li>
+        </ul>
+    </div>
+    <p data-testid="ta-select-error-msg-0">Field required</p>
+</div>
+```
+
+## API
+
+<ArgTypes />
+
+## SelectOption
+
+Each item in the items array should follow this structure:
+
+```ts
+interface SelectOption {
+    label: string;
+    value: string;
+}
+```
