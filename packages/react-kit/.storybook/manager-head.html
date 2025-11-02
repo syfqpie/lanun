@@ -1,0 +1,37 @@
+<meta name="description" content="React components, freshly baked" key="desc" />
+
+<style>
+	/* Sidebar header */
+	.sidebar-header > div > a > img {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	/* Sidebar item */
+	.sidebar-item {
+		border-radius: 8px !important;
+		margin-bottom: 5px;
+	}
+
+	.sidebar-item > a {
+		padding: 8px 22px;
+		align-items: center;
+	}
+
+	.sidebar-item > a > div {
+		margin-top: unset !important;
+	}
+
+	.sidebar-item:hover:not([data-selected="true"]) {
+		background: rgba(16, 24, 40, 0.05) !important;
+	}
+
+	.sidebar-item:not([data-selected="true"]) > a > div > svg {
+		color: oklch(21% 0.034 264.665) !important;
+	}
+
+	/* Remove version label if visible */
+	.sidebar-subheading > span {
+	  	display: none;
+	}
+</style>

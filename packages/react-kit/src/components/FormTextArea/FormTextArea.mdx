@@ -1,0 +1,65 @@
+import { Canvas, Meta, Story } from '@storybook/blocks'
+import FormTextArea from './FormTextArea'
+import * as FormTextAreaStories from './FormTextArea.stories'
+
+<Meta of={FormTextAreaStories} />
+
+# FormTextArea
+
+`FormTextArea` is a customizable textarea component that standardizes `textarea` behavior and styling while ensuring a consistent user experience.
+
+## Import
+
+```tsx
+import { FormTextArea } from '@lanun/react-kit/components'
+```
+
+## Usages
+
+### Basic
+
+<Canvas
+    of={FormTextAreaStories.Basic}
+    sourceState='none' />
+
+```tsx
+<FormTextArea
+    label='Address'
+    placeholder='Enter address'
+    value={value} />
+```
+
+### Error appearance and messages
+
+If the `hasError` prop is set to `true`, the textarea will switch to the `error` variant.
+If `errorMessages` is also provided, the corresponding error messages will be displayed.
+
+<Canvas of={FormTextAreaStories.ErrorStateWithMessage} />
+
+### Disabled state
+
+To apply the disabled styling and prevent user interaction, set the `disabled` prop to `true`.
+
+<Canvas of={FormTextAreaStories.Disabled} />
+
+### Styling form wrapper
+
+The `groupClassName` prop allows you to apply additional styling to the container that wraps the textarea field and label.
+
+<Canvas of={FormTextAreaStories.WithGroupClassName} />
+
+## Test automation tag
+
+To assist with automated testing, add a `testId` attribute to the `FormTextArea`.
+
+<Canvas of={FormTextAreaStories.Basic} />
+
+Will be rendered as:
+
+```html
+<div data-testid="ta-textarea-form">
+    <label data-testid="ta-textarea-label">Name</label>
+    <textarea placeholder="Enter name" data-testid="ta-textarea-textarea"></textarea>
+    <p data-testid="ta-textarea-error-msg-0">Field required</p>
+</div>
+```
