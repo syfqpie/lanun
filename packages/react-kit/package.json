@@ -2,7 +2,7 @@
   "name": "@lanun/react-kit",
   "description": "React toolkit for building React apps",
   "private": false,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "publishConfig": {
     "access": "public"
