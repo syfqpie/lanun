@@ -49,20 +49,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish
+        uses: changesets/action@v1
         if: steps.changesets.outputs.hasChangesets == 'false'
-        run:
-          pnpm changeset publish
+        with:
+          publish: pnpm changeset publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      # - name: Publish changed packages
-      #   uses: changesets/action@v1
-      #   with:
-      #     publish: pnpm changeset publish
-      #   env:
-      #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 
   # deploy-vercel:
