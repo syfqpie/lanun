@@ -1,21 +1,23 @@
-import pluginNext from '@next/eslint-plugin-next'
+import { defineConfig, globalIgnores } from 'eslint/config'
+import { FlatCompat } from '@eslint/eslintrc'
 
-import { config as reactConfig } from './react-internal.js'
+import { config as reactConfig } from './react.js'
+
+const compat = new FlatCompat()
 
 /**
- * Next config
+ * Next ESLint configs.
  *
  * @type {import('eslint').Linter.Config[]}
  * */
-export const config = [
+export const config = defineConfig([
+	...compat.extends('plugin:@next/next/core-web-vitals'),
 	...reactConfig,
-	{
-		plugins: {
-			'@next/next': pluginNext,
-		},
-		rules: {
-			...pluginNext.configs.recommended.rules,
-			...pluginNext.configs['core-web-vitals'].rules,
-		},
-	},
-]
+	globalIgnores([
+		'.lanun/**',
+		'.next/**',
+		'.out/**',
+		'.build/**',
+		'next-env.d.ts',
+	]),
+])

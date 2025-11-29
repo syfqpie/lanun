@@ -5,7 +5,7 @@ import globals from 'globals'
 import { config as baseConfig } from './base.js'
 
 /**
- * React config
+ * React ESLint configs.
  *
  * @type {import('eslint').Linter.Config[]} */
 export const config = [
@@ -55,6 +55,12 @@ export const config = [
 			],
 			'react/react-in-jsx-scope': 'off',
 			'react/prop-types': [0],
+		},
+	},
+	{
+		files: ['**/*.{ts,tsx}'],
+		rules: {
+			'react/prop-types': 'off',
 		},
 	},
 ]
