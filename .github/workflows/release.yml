@@ -51,6 +51,7 @@ jobs:
       - name: Publish
         if: steps.changesets.outputs.hasChangesets == 'false'
         run:
+          pnpm build
           pnpm changeset publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
