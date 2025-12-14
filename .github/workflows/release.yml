@@ -48,6 +48,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Build
+        if: steps.changesets.outputs.hasChangesets == 'false'
+        run: pnpm build
+
       - name: Publish
         uses: changesets/action@v1
         if: steps.changesets.outputs.hasChangesets == 'false'
