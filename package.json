@@ -11,7 +11,8 @@
     "lint:react-kit": "pnpm lint -F @lanun/react-kit",
     "check-types": "turbo run check-types",
     "test": "turbo run test",
-    "test:react-kit": "pnpm test -F @lanun/react-kit"
+    "test:react-kit": "pnpm test -F @lanun/react-kit",
+    "test:i18n": "pnpm test -F @lanun/antarabangsa"
   },
   "keywords": [],
   "author": "",
