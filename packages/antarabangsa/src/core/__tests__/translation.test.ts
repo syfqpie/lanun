@@ -4,9 +4,9 @@ import { createTranslation } from '@/core/translation'
 import type { TranslationConfig } from '@/types'
 
 const config: TranslationConfig = {
-	defaultLocale: 'my',
+	defaultLocale: 'ms',
 	translations: {
-		my: {
+		ms: {
 			page: { title: 'Hai {name}' },
 			common: { cancel: 'Batal' },
 		},
@@ -32,27 +32,27 @@ describe('createTranslation', () => {
 		expect(t('unknown.key')).toBe('unknown.key')
 	})
 
-	it('supports nested dot-path access', () => {
-		const t = createTranslation('my', config)
+	it('supports nested dot path access', () => {
+		const t = createTranslation('ms', config)
 		expect(t('page.title')).toBe('Hai {name}')
 	})
 
 	it('interpolates placeholder values', () => {
-		const t = createTranslation('my', config)
+		const t = createTranslation('ms', config)
 		expect(t('page.title', { name: 'Mat' })).toBe('Hai Mat')
 	})
 
 	it('interpolates multiple placeholders', () => {
 		const multiConfig: TranslationConfig = {
-			defaultLocale: 'my',
+			defaultLocale: 'ms',
 			translations: {
-				my: {
+				ms: {
 					greeting: 'Hai {name}, anda mempunyai {count} pesanan',
 				},
 			},
 		}
 
-		const t = createTranslation('my', multiConfig)
+		const t = createTranslation('ms', multiConfig)
 		expect(t('greeting', { name: 'Mat', count: 3 })).toBe(
 			'Hai Mat, anda mempunyai 3 pesanan',
 		)

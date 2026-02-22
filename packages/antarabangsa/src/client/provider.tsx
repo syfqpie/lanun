@@ -7,7 +7,7 @@ import type { TranslationProviderProps } from './types'
  * Must wrap any component tree that uses {@link useLocale} or {@link useTranslation}.
  *
  * @example
- * <TranslationProvider locale="my" config={config}>
+ * <TranslationProvider locale="ms" config={config}>
  *   <App />
  * </TranslationProvider>
  */

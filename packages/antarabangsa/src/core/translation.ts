@@ -8,7 +8,7 @@ import { getByPath } from '@/utils'
  * - Resolves translation keys from the active locale
  * - Falls back to the default locale when missing
  * - Falls back to the key itself if no translation exists
- * - Supports nested keys via dot-path notation (e.g. `"page.title"`)
+ * - Supports nested keys via dot path notation (e.g. `"page.title"`)
  * - Supports placeholder interpolation using `{placeholder}` syntax
  *
  * @param locale - The active locale to resolve translations from.
@@ -16,10 +16,10 @@ import { getByPath } from '@/utils'
  * @returns A translation function `t(key, values?)` that returns a localized string.
  *
  * @example
- * const t = createTranslation("my", {
- *   defaultLocale: "my",
+ * const t = createTranslation("ms", {
+ *   defaultLocale: "ms",
  *   translations: {
- *     my: { page: { title: "Hai {name}" } }
+ *     ms: { page: { title: "Hai {name}" } }
  *   }
  * })
  *
@@ -28,9 +28,9 @@ import { getByPath } from '@/utils'
  * @example
  * // Fallback to default locale if missing
  * const t = createTranslation("fr", {
- *   defaultLocale: "my",
+ *   defaultLocale: "ms",
  *   translations: {
- *     my: { page: { title: "Hai" } },
+ *     ms: { page: { title: "Hai" } },
  *     fr: {}
  *   }
  * })
@@ -47,7 +47,7 @@ export const createTranslation = (
 	/**
 	 * Resolves a translation string by key and optionally interpolates values.
 	 *
-	 * @param key - Translation key, supports dot-path access (e.g. `"page.title"`).
+	 * @param key - Translation key, supports dot path access (e.g. `"page.title"`).
 	 * @param values - Optional placeholder values to interpolate into the string.
 	 * Placeholders use `{name}` syntax.
 	 * @returns The localized string with interpolated values.

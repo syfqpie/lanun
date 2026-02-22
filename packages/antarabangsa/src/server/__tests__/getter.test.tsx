@@ -3,9 +3,9 @@ import { getTranslation } from '@/server/getter'
 import type { TranslationConfig } from '@/types'
 
 const config: TranslationConfig = {
-	defaultLocale: 'my',
+	defaultLocale: 'ms',
 	translations: {
-		my: {
+		ms: {
 			page: { title: 'Hai' },
 		},
 		fr: {
@@ -29,9 +29,9 @@ describe('getTranslation', () => {
 
 	it('t falls back to default locale', () => {
 		const { t } = getTranslation('fr', {
-			defaultLocale: 'my',
+			defaultLocale: 'ms',
 			translations: {
-				my: { common: { cancel: 'Batal' } },
+				ms: { common: { cancel: 'Batal' } },
 				fr: {},
 			},
 		})

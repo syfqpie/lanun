@@ -4,7 +4,7 @@
  * This enables accessing nested translation objects using flat string keys.
  *
  * @param obj - The object to resolve the path from.
- * @param path - Dot-separated path (e.g. `"page.title"`).
+ * @param path - Dot separated path (e.g. `"page.title"`).
  * @returns The resolved string value if found, otherwise `undefined`.
  *
  * @example

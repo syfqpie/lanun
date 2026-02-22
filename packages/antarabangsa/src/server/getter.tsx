@@ -16,15 +16,15 @@ import { TranslationConfig } from '@/types'
  * - `locale`: The active locale used to create the translation function.
  *
  * @example
- * const { t, locale } = getTranslation("my", {
- *   defaultLocale: "my",
+ * const { t, locale } = getTranslation("ms", {
+ *   defaultLocale: "ms",
  *   translations: {
- *     my: { page: { title: "Hai" } }
+ *     ms: { page: { title: "Hai" } }
  *   }
  * })
  *
  * t("page.title") // "Hai"
- * locale // "my"
+ * locale // "ms"
  */
 export const getTranslation = (locale: string, config: TranslationConfig) => {
 	const t = createTranslation(locale, config)

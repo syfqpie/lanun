@@ -6,9 +6,9 @@ import { TranslationProvider, useLocale, useTranslation } from '@/client'
 import type { TranslationConfig } from '@/types'
 
 const config: TranslationConfig = {
-	defaultLocale: 'my',
+	defaultLocale: 'ms',
 	translations: {
-		my: { page: { title: 'Hai' } },
+		ms: { page: { title: 'Hai' } },
 		fr: { page: { title: 'Bonjour' } },
 	},
 }
@@ -40,9 +40,9 @@ describe('TranslationProvider + hooks', () => {
 
 	it('useTranslation falls back to default locale', () => {
 		const fallbackConfig: TranslationConfig = {
-			defaultLocale: 'my',
+			defaultLocale: 'ms',
 			translations: {
-				my: { common: { cancel: 'Batal' } },
+				ms: { common: { cancel: 'Batal' } },
 				fr: {},
 			},
 		}

@@ -1,5 +1,5 @@
 /**
- * A locale identifier (e.g. "my", "en-MY", "en").
+ * A locale identifier (e.g. "ms", "en-MY", "en").
  * Used as the top level key for the translations record.
  */
 export type Locale = string
