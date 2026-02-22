@@ -1,5 +1,5 @@
 import { createTranslation } from '@/core/translation'
-import { TranslationConfig } from '@/types'
+import { TranslationConfig } from '@/core/types'
 
 /**
  * Creates and returns a translation utility object for a given locale.

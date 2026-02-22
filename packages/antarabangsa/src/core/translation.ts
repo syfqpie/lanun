@@ -1,4 +1,4 @@
-import { TranslationConfig } from '@/types'
+import { TranslationConfig } from '@/core/types'
 import { getByPath } from '@/utils'
 
 /**

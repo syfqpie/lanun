@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 
 import { createTranslation } from '@/core/translation'
-import type { TranslationConfig } from '@/types'
+import type { TranslationConfig } from '@/core/types'
 
 const config: TranslationConfig = {
 	defaultLocale: 'ms',

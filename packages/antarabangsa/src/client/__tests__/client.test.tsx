@@ -3,7 +3,7 @@ import { describe, it, expect } from 'vitest'
 import { renderHook } from '@testing-library/react'
 
 import { TranslationProvider, useLocale, useTranslation } from '@/client'
-import type { TranslationConfig } from '@/types'
+import type { TranslationConfig } from '@/core/types'
 
 const config: TranslationConfig = {
 	defaultLocale: 'ms',
