@@ -1,10 +1,17 @@
 import path, { resolve } from 'path'
 import { cpSync } from 'fs'
+import { readFile } from 'fs/promises'
 import { defineConfig } from 'tsup'
+
+const CLIENT_DIRS = ['client']
+const directoryRegex = new RegExp(
+	`src[\\\\/](${CLIENT_DIRS.join('|')})(?:[\\\\/]|$)`,
+)
 
 export default defineConfig({
 	entry: {
-		'index': resolve(__dirname, 'src/index.ts')
+		index: resolve(__dirname, 'src/index.ts'),
+		'client/index': resolve(__dirname, 'src/client/index.ts'),
 	},
 	format: ['esm', 'cjs'],
 	dts: true,
@@ -16,10 +23,30 @@ export default defineConfig({
 	tsconfig: 'tsconfig.lib.json',
 	target: 'es2022',
 	external: ['react', 'react-dom', 'react/jsx-runtime'],
+	esbuildPlugins: [
+		{
+			name: 'use-client-banner',
+			setup(build) {
+				build.onLoad({ filter: /\.[jt]s?$/ }, async (args) => {
+					const relativePath = path.relative(process.cwd(), args.path)
+					if (directoryRegex.test(relativePath)) {
+						const contents = await readFile(args.path, 'utf8')
+						return {
+							contents: `"use client";\n${contents}`,
+							loader: path.extname(args.path).slice(1) as
+								| 'ts'
+								| 'tsx'
+								| 'js'
+								| 'jsx',
+						}
+					}
+
+					return null
+				})
+			},
+		},
+	],
 	esbuildOptions(options) {
-		options.banner = {
-			js: '"use client";',
-		}
 		options.alias = {
 			'@': path.resolve(__dirname, 'src'),
 		}
