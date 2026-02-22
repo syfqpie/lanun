@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
 
-import { createTranslation } from '@/core/translation'
+import { createTranslation, getTranslation } from '@/core/translation'
 import type { TranslationConfig } from '@/core/types'
 
 const config: TranslationConfig = {
@@ -56,5 +56,31 @@ describe('createTranslation', () => {
 		expect(t('greeting', { name: 'Mat', count: 3 })).toBe(
 			'Hai Mat, anda mempunyai 3 pesanan',
 		)
+	})
+})
+
+describe('getTranslation', () => {
+	it('returns t function and locale', () => {
+		const { t, locale } = getTranslation('fr', config)
+
+		expect(locale).toBe('fr')
+		expect(typeof t).toBe('function')
+	})
+
+	it('t resolves translations for provided locale', () => {
+		const { t } = getTranslation('fr', config)
+		expect(t('page.title')).toBe('Bonjour {name}')
+	})
+
+	it('t falls back to default locale', () => {
+		const { t } = getTranslation('fr', {
+			defaultLocale: 'ms',
+			translations: {
+				ms: { common: { cancel: 'Batal' } },
+				fr: {},
+			},
+		})
+
+		expect(t('common.cancel')).toBe('Batal')
 	})
 })
