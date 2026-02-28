@@ -1,6 +1,6 @@
 {
-  "name": "@lanun/antarabangsa",
-  "description": "i18n for React apps",
+  "name": "@lanun/antarabangsa-next",
+  "description": "i18n for Next.js apps",
   "private": false,
   "version": "0.0.0",
   "type": "module",
@@ -26,20 +26,17 @@
   },
   "keywords": [
     "react",
+    "next",
+    "nextjs",
     "antarabangsa",
     "i18n",
     "internalization",
     "locale"
   ],
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.js"
-    },
     "./client": {
       "types": "./dist/client/index.d.ts",
       "import": "./dist/client/index.js",
@@ -51,11 +48,14 @@
   ],
   "sideEffects": false,
   "peerDependencies": {
+    "@lanun/antarabangsa": "workspace:*",
+    "next": ">=15.0.0",
     "react": ">=18.0.0",
     "react-dom": ">=18.0.0"
   },
   "devDependencies": {
     "@lanun/eslint-config": "workspace:*",
+    "@lanun/antarabangsa": "workspace:*",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
     "@testing-library/user-event": "^14.6.1",
@@ -64,11 +64,15 @@
     "@types/react-dom": "^19.0.3",
     "@vitejs/plugin-react": "^4.3.4",
     "eslint": "^9.39.0",
+    "eslint-config-next": "^15.5.5",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-turbo": "^2.6.0",
     "globals": "^15.14.0",
     "jsdom": "^26.0.0",
+    "next": "^15.5.9",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tsup": "^8.5.0",
