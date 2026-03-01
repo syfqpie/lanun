@@ -199,3 +199,8 @@ export const createI18nRouting = (config: RoutingConfig) => {
 		},
 	}
 }
+
+/** Return type of createI18nRouting. */
+export type ReturnTypeOfCreatingI18nRouting = ReturnType<
+	typeof createI18nRouting
+>
