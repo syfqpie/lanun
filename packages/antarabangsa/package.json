@@ -1,6 +1,6 @@
 {
   "name": "@lanun/antarabangsa",
-  "description": "i18n for React apps",
+  "description": "Internationalization (i18n) library for React apps",
   "private": false,
   "version": "0.0.0",
   "type": "module",
@@ -28,8 +28,10 @@
     "react",
     "antarabangsa",
     "i18n",
+    "internationalization",
     "internalization",
-    "locale"
+    "locale",
+    "lanun"
   ],
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
