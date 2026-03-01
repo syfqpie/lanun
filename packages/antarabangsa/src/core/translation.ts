@@ -8,7 +8,7 @@ import { getByPath } from '@/utils'
  * - Resolves translation keys from the active locale
  * - Falls back to the default locale when missing
  * - Falls back to the key itself if no translation exists
- * - Supports nested keys via dot path notation (e.g. `"page.title"`)
+ * - Supports nested keys via dot path notation (e.g. `'page.title'`)
  * - Supports placeholder interpolation using `{placeholder}` syntax
  *
  * @param locale - The active locale to resolve translations from.
@@ -16,26 +16,26 @@ import { getByPath } from '@/utils'
  * @returns A translation function `t(key, values?)` that returns a localized string.
  *
  * @example
- * const t = createTranslation("ms", {
- *   defaultLocale: "ms",
+ * const t = createTranslation('ms', {
+ *   defaultLocale: 'ms',
  *   translations: {
- *     ms: { page: { title: "Hai {name}" } }
+ *     ms: { page: { title: 'Hai {name}' } }
  *   }
  * })
  *
- * t("page.title", { name: "Mat" }) // "Hi Mat"
+ * t('page.title', { name: 'Mat' }) // 'Hi Mat'
  *
  * @example
  * // Fallback to default locale if missing
- * const t = createTranslation("fr", {
- *   defaultLocale: "ms",
+ * const t = createTranslation('th', {
+ *   defaultLocale: 'ms',
  *   translations: {
- *     ms: { page: { title: "Hai" } },
- *     fr: {}
+ *     ms: { page: { title: 'Hai' } },
+ *     th: {}
  *   }
  * })
  *
- * t("page.title") // "Hai"
+ * t('page.title') // 'Hai'
  */
 export const createTranslation = (
 	locale: string,
@@ -47,7 +47,7 @@ export const createTranslation = (
 	/**
 	 * Resolves a translation string by key and optionally interpolates values.
 	 *
-	 * @param key - Translation key, supports dot path access (e.g. `"page.title"`).
+	 * @param key - Translation key, supports dot path access (e.g. `'page.title'`).
 	 * @param values - Optional placeholder values to interpolate into the string.
 	 * Placeholders use `{name}` syntax.
 	 * @returns The localized string with interpolated values.
@@ -83,15 +83,15 @@ export const createTranslation = (
  * - `locale`: The active locale used to create the translation function.
  *
  * @example
- * const { t, locale } = getTranslation("ms", {
- *   defaultLocale: "ms",
+ * const { t, locale } = getTranslation('ms', {
+ *   defaultLocale: 'ms',
  *   translations: {
- *     ms: { page: { title: "Hai" } }
+ *     ms: { page: { title: 'Hai' } }
  *   }
  * })
  *
- * t("page.title") // "Hai"
- * locale // "ms"
+ * t('page.title') // 'Hai'
+ * locale // 'ms'
  */
 export const getTranslation = (locale: string, config: TranslationConfig) => {
 	const t = createTranslation(locale, config)
