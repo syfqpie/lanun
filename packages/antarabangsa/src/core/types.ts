@@ -86,7 +86,7 @@ export interface DomainConfig {
 	/** List of locale codes that are available for this domain.
 	 * Must be a subset of the global `locales` map.
 	 */
-	locales: Locale
+	locales: Locale[]
 }
 
 /**
