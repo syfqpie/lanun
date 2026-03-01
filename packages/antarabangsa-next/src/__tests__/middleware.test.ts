@@ -22,8 +22,8 @@ class MockURL extends URL {
 	}
 }
 
-import { createi18nMiddleware } from '../middleware'
 import { createI18nRouting } from '@lanun/antarabangsa'
+import { createi18nMiddleware } from '@/middleware'
 
 const makeRequest = (path: string, host: string) => ({
 	nextUrl: new MockURL(`https://${host}${path}`),
