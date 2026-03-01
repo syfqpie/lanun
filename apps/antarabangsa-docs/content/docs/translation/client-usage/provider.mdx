@@ -1,0 +1,33 @@
+---
+title: Provider
+---
+
+## TranslationProvider
+
+`TranslationProvider` exposes the locale and translation configuration via React context.  
+
+It **must wrap any component tree** that uses `useLocale()` or `useTranslation()`.
+
+### Props
+
+```ts
+interface TranslationProviderProps {
+  locale: string
+  config: TranslationConfig
+  children: ReactNode
+}
+```
+
+- `locale` - active locale for the subtree
+- `config` - translation configuration (dictionaries and default locale)
+- `children` - React nodes that will have access to the translation context
+
+### Example
+
+```tsx
+import { TranslationProvider } from '@lanun/antarabangsa'
+
+<TranslationProvider locale="ms" config={config}>
+  <App />
+</TranslationProvider>
+```

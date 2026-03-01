@@ -1,0 +1,52 @@
+---
+title: API references
+---
+
+### `createTranslation(locale, config)`
+
+Creates a translation function for a given locale.
+
+**Parameters:**
+
+- `locale` - the active locale code (string)
+- `config` - translation configuration (`TranslationConfig`)
+
+**Returns:**  
+A function `t(key: string, values?: Record<string, string | number>) => string`
+
+**Behavior:**
+
+- Resolves key in `locale` translations
+- Fallback to default locale if missing
+- Fallback to key string if missing everywhere
+- Supports placeholder interpolation
+
+---
+
+### `getTranslation(locale, config)`
+
+Returns a translation utility object for a given locale.
+
+**Parameters:**
+
+- `locale` - the active locale code
+- `config` - translation configuration
+
+**Returns:**
+
+```ts
+{
+  t: (key, values?) => string,
+  locale: string
+}
+```
+
+Example:
+
+```tsx
+import { useTranslation } from '@lanun/antarabangsa'
+
+const { t, locale } = getTranslation('ms', config)
+t('page.title') // 'Hai'
+locale           // 'ms'
+```

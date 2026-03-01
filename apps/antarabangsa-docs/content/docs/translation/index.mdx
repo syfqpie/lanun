@@ -1,0 +1,41 @@
+---
+title: Translations
+---
+
+## Overview
+
+The translation utilities provide a simple, consistent way to resolve localized strings in both server and client contexts. At the core are two functions:
+- `createTranslation()` - generates a translation function for a given locale.
+- `getTranslation()` - convenience wrapper that returns the translation function along with the locale.
+
+## Key Features
+
+- Resolves translation keys for a given locale.
+- Falls back to the default locale if a key is missing.
+- Returns the key itself if no translation exists.
+- Supports nested keys via dot notation, e.g., `'page.title'`.
+- Supports placeholder interpolation using `{placeholder}` syntax.
+
+## Translation Configuration
+
+```ts
+type TranslationConfig = {
+  defaultLocale: string
+  translations: Record<string, Record<string, any>>
+}
+```
+
+- `defaultLocale`: The fallback locale when a translation is missing.
+- `translations`: A dictionary mapping locale codes to translation objects.
+
+### Example
+
+```ts
+const translations = {
+  defaultLocale: 'ms',
+  translations: {
+    ms: { page: { title: 'Hai {name}' } },
+    th: { page: { title: 'สวัสดี {name}' } }
+  }
+}
+```

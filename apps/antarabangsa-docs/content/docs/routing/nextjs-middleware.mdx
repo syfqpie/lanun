@@ -1,0 +1,69 @@
+---
+title: Next.js Middleware
+---
+
+`createi18nMiddleware` is a Next.js middleware factory that handles locale routing.
+
+## Features
+
+- Redirects invalid or inactive locale prefixes
+- Enforces domain → locale ownership
+- Hides default locale prefixes if configured
+- Rewrites requests internally to default locale
+- Handles “no locale routes” (e.g. `/sitemap-index.xml`)
+
+## Usage
+
+```ts
+import { createi18nMiddleware } from '@lanun/antarabangsa/next'
+import { createI18nRouting } from '@lanun/antarabangsa'
+
+const routing = createI18nRouting(config)
+
+export const middleware = createi18nMiddleware(routing, {
+  noLocaleRoutes: ['/sitemap-index.xml']
+})
+```
+
+This middleware ensures your app:
+- Always resolves the correct locale per domain
+- Redirects inactive locales to defaults
+- Rewrites URLs internally for seamless routing
+
+### Full example
+
+```ts
+import { createi18nMiddleware } from '@lanun/antarabangsa/next'
+import { createI18nRouting } from '@lanun/antarabangsa'
+
+const config = {
+    fallbackDomain: 'lanun.example',
+	fallbackLocale: 'en',
+	locales: {
+		en: { code: 'en', active: true, indexable: true },
+		'en-MY': { code: 'en-MY', active: true, indexable: true },
+		ms: { code: 'ms', active: true, indexable: true },
+		th: { code: 'th', active: false, indexable: true },
+	},
+	domains: [
+		{ hostname: 'ms.lanun.example', defaultLocale: 'ms', locales: ['en-MY'] },
+	],
+	hideDefaultLocale: true,
+}
+const routing = createI18nRouting(config)
+
+export const middleware = createi18nMiddleware(routing, {
+  noLocaleRoutes: ['/sitemap-index.xml']
+})
+```
+
+Behavior:
+
+| URL                        | Host             | Result                                       |
+|----------------------------|------------------|----------------------------------------------|
+| `/ms/about`                | `lanun.example`  | Redirect to `ms.lanun.example/about`         |
+| `/en-MY/about`             | `lanun.example`  | Redirect to `ms.lanun.example/en-MY/about`   |
+| `/th/about`                | `lanun.example`  | Redirect to default locale `/en/about`       |
+| `/ja/about`                | `lanun.example`  | Redirect to default locale `/en/about`       |
+| `/about`                   | `lanun.example`  | Rewrite internally to `/en/about`            |
+| `/ms/sitemap-index.xml`    | `lanun.example`  | Redirect to `/sitemap-index.xml`             |

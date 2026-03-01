@@ -1,0 +1,8 @@
+{
+  "pages": [
+    "config",
+    "usage",
+    "nextjs-middleware",
+    "examples"
+  ]
+}

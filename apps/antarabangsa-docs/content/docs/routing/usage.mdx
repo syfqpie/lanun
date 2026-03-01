@@ -1,0 +1,20 @@
+---
+title: Usage
+---
+
+## Creating an i18n Routing Instance
+
+Use `createI18nRouting` to create a scoped routing instance:
+
+```ts
+import { createI18nRouting } from '@lanun/antarabangsa'
+
+const routing = createI18nRouting(config)
+
+// Helpers
+routing.getDomainConfig('lanun.example')        // -> domain config
+routing.getDefaultLocale('lanun.example')       // -> 'en'
+routing.getDomainConfigByLocale('ms')           // -> domain owning 'ms'
+routing.getActiveLocaleCodes()                  // -> ['en','ms']
+routing.getOrphanLocales()  
+```

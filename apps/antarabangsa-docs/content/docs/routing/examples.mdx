@@ -1,0 +1,17 @@
+---
+title: Examples
+---
+
+# Full Example: Multi-domain Locale Routing
+
+- Host: `lanun.example` → default `en`, allowed: `en`, `ms`
+- Host: `ms.lanun.example` → default `ms`, allowed: `ms`
+
+Behavior:
+
+| URL                     | Host               | Result                                |
+|-------------------------|------------------|--------------------------------------|
+| `/ms/about`             | `lanun.example`  | Redirect to `ms.lanun.example/about` |
+| `/th/about`             | `lanun.example`  | Redirect to default locale `/en/about` |
+| `/about`                | `lanun.example`  | Rewrite internally to `/en/about`    |
+| `/ms/sitemap-index.xml` | `lanun.example`  | Redirect to `/sitemap-index.xml`     |

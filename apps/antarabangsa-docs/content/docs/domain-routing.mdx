@@ -1,0 +1,21 @@
+---
+title: Domain Based Locale System
+---
+
+## Domain Based Locale System
+
+The middleware in `@lanun/antarabangsa-next` supports redirecting / rewriting users to a locale specific domain based on your routing configuration.
+
+For example:
+
+- `example.com` → default locale
+- `example.my` → `ms-MY`
+- `example.jp` → `ja-JP`
+
+When a request comes in, the middleware can:
+
+1. Detect the incoming host
+2. Resolve the target locale from your config
+3. Redirect or rewrite the request to the correct locale domain
+
+This makes it easy to implement multi domain, multi locale setups without duplicating routing logic across apps.

@@ -1,0 +1,31 @@
+---
+title: Hooks
+---
+
+## `useLocale()`
+
+Retrieves the active locale from context.
+
+- **Throws** an error if used outside a `TranslationProvider`.
+
+```ts
+import { useLocale } from '@lanun/antarabangsa'
+
+const { locale } = useLocale()
+console.log(locale) // e.g. 'ms'
+```
+
+## `useTranslation()`
+
+Retrieves the translation function t and the active locale.
+
+- Internally calls createTranslation(locale, config)
+- **Throws** an error if used outside a `TranslationProvider`.
+
+```ts
+import { useTranslation } from '@lanun/antarabangsa'
+
+const { t, locale } = useTranslation()
+t('page.title', { name: 'Mat' }) // 'Hai Mat'
+console.log(locale) // 'ms'
+```
