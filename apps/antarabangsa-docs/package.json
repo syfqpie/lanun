@@ -11,6 +11,8 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@lanun/antarabangsa": "workspace:*",
+    "@lanun/antarabangsa-next": "workspace:*",
     "fumadocs-core": "16.6.8",
     "fumadocs-mdx": "14.2.9",
     "fumadocs-ui": "16.6.8",
