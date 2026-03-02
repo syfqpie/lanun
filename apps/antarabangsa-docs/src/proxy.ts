@@ -6,11 +6,11 @@ import { isDev } from './env'
 const domains = {
 	dev: {
 		default: 'app.lokal:3000',
-		ms: 'ms.app.lokal:3000',
+		// ms: 'ms.app.lokal:3000',
 	},
 	prod: {
 		default: 'antarabangsa.cendol.dev',
-		ms: 'ms.antarabangsa.cendol.dev',
+		// ms: 'ms.antarabangsa.cendol.dev',
 	},
 }
 
@@ -20,14 +20,14 @@ const conf = {
 	locales: {
 		en: { code: 'en', active: true, indexable: true },
 		'en-MY': { code: 'en-MY', active: true, indexable: true },
-		ms: { code: 'ms', active: true, indexable: true },
+		// ms: { code: 'ms', active: true, indexable: true },
 	},
 	domains: [
-		{
-			hostname: isDev ? domains.dev.ms : domains.prod.ms,
-			defaultLocale: 'ms',
-			locales: ['en-MY'],
-		},
+		// {
+		// 	hostname: isDev ? domains.dev.ms : domains.prod.ms,
+		// 	defaultLocale: 'ms',
+		// 	locales: ['en-MY'],
+		// },
 	],
 	hideDefaultLocale: true,
 }
