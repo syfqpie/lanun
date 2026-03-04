@@ -7,9 +7,9 @@ import { createRelativeLink } from 'fumadocs-ui/mdx';
 import { LLMCopyButton, ViewOptions } from '@/components/ai/page-actions';
 import { gitConfig } from '@/lib/layout.shared';
 
-export default async function Page(
+const Page = async (
   props: PageProps<'/[locale]/docs/[[...slug]]'>
-) {
+) => {
   const params = await props.params;
   const { locale, slug = [] } = params;
 
@@ -68,3 +68,5 @@ export async function generateMetadata(props: PageProps<'/[locale]/docs/[[...slu
     },
   };
 }
+
+export default Page

@@ -2,7 +2,7 @@ import { source } from '@/lib/source';
 
 export const revalidate = false;
 
-export async function GET() {
+export const GET = async () => {
   const lines: string[] = [];
   lines.push('# Documentation');
   lines.push('');
