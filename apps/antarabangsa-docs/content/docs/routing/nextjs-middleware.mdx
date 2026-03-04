@@ -1,0 +1,31 @@
+---
+title: Next.js Middleware
+---
+
+`createi18nMiddleware` is a Next.js middleware factory that handles locale routing.
+
+## Features
+
+- Redirects invalid or inactive locale prefixes
+- Enforces domain → locale ownership
+- Hides default locale prefixes if configured
+- Rewrites requests internally to default locale
+- Handles “no locale routes” (e.g. `/sitemap-index.xml`)
+
+## Usage
+
+```ts
+import { createi18nMiddleware } from '@lanun/antarabangsa/next'
+import { createI18nRouting } from '@lanun/antarabangsa'
+
+const routing = createI18nRouting(config)
+
+export const middleware = createi18nMiddleware(routing, {
+  noLocaleRoutes: ['/sitemap-index.xml']
+})
+```
+
+This middleware ensures your app:
+- Always resolves the correct locale per domain
+- Redirects inactive locales to defaults
+- Rewrites URLs internally for seamless routing

@@ -1,0 +1,69 @@
+---
+title: Examples
+---
+
+## Full example with App Router
+
+### Folder structure
+
+Ensure all special files inside `app/` are nested under `app/[lang]` or `app/[locale]`. This enables the Next.js router to dynamically handle different locales in the route, and forward the lang parameter to every layout and page:
+
+```tsx
+// app/[locale]/page.tsx
+// You now have access to the current locale
+// e.g. /en-MY/products -> `lang` is "en-MY"
+const Page = ({
+  params,
+}: {
+  params: Promise<{ lang: string }>
+}) => {
+  const { lang } = await params
+  return ...
+}
+
+export default Page
+```
+
+### `middleware.ts` or `middleware/<filename>.ts` or `proxy.ts`
+
+```ts
+import { createI18nRouting } from '@lanun/antarabangsa'
+import { createi18nMiddleware } from '@lanun/antarabangsa-next'
+
+const config = {
+    fallbackDomain: 'lanun.example',
+	fallbackLocale: 'en',
+	locales: {
+		en: { code: 'en', active: true, indexable: true },
+		'en-MY': { code: 'en-MY', active: true, indexable: true },
+		ms: { code: 'ms', active: true, indexable: true },
+		th: { code: 'th', active: false, indexable: true },
+	},
+	domains: [
+		{ hostname: 'ms.lanun.example', defaultLocale: 'ms', locales: ['en-MY'] },
+	],
+	hideDefaultLocale: true,
+}
+const routing = createI18nRouting(config)
+
+export const middleware = createi18nMiddleware(routing, {
+  noLocaleRoutes: ['/sitemap-index.xml']
+})
+
+export const config = {
+  // Matcher ignoring `/_next/` and `/api/`
+  // You may need to adjust it to ignore static assets in `/public` folder
+  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
+};
+```
+
+Behavior:
+
+| URL                        | Host             | Result                                       |
+|----------------------------|------------------|----------------------------------------------|
+| `/ms/about`                | `lanun.example`  | Redirect to `ms.lanun.example/about`         |
+| `/en-MY/about`             | `lanun.example`  | Redirect to `ms.lanun.example/en-MY/about`   |
+| `/th/about`                | `lanun.example`  | Redirect to default locale `/en/about`       |
+| `/ja/about`                | `lanun.example`  | Redirect to default locale `/en/about`       |
+| `/about`                   | `lanun.example`  | Rewrite internally to `/en/about`            |
+| `/ms/sitemap-index.xml`    | `lanun.example`  | Redirect to `/sitemap-index.xml`             |

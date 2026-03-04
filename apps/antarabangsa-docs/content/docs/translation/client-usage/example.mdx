@@ -1,0 +1,36 @@
+---
+title: Example
+---
+
+```tsx
+import { TranslationProvider, useTranslation } from '@lanun/antarabangsa'
+
+const config = {
+  defaultLocale: 'ms',
+  translations: {
+    ms: { page: { title: 'Hai {name}' } },
+    th: { page: { title: 'สวัสดี {name}' } }
+  }
+}
+
+const Greeting = () => {
+  const { t } = useTranslation()
+  return <h1>{t('page.title', { name: 'Alice' })}</h1>
+}
+
+const App = () => {
+  return (
+    <TranslationProvider locale="ms" config={config}>
+      <Greeting />
+    </TranslationProvider>
+  )
+}
+
+export default App
+```
+
+Output:
+
+```html
+<h1>Hai Alice</h1>
+```

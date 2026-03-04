@@ -1,0 +1,11 @@
+---
+title: Client usage
+---
+
+On the client, translations are exposed via React context and hooks.
+
+- `TranslationProvider` - wraps a component tree and provides locale and config
+- `useLocale()` - retrieves the active locale
+- `useTranslation()` - retrieves the translation function `t` and current locale
+
+This allows components to access translations anywhere in the tree without passing props manually.

@@ -1,0 +1,89 @@
+{
+  "name": "@lanun/antarabangsa-next",
+  "description": "Internationalization (i18n) library for Next.js apps",
+  "private": false,
+  "version": "0.0.0",
+  "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "watch": "tsup --watch",
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint \"src/**/*.{ts,tsx,js,jsx}\" \"*.{ts,mts,js,mjs}\" --max-warnings=0",
+    "yalc:push": "pnpm build && yalc publish --push"
+  },
+  "license": "MIT",
+  "homepage": "https://antarabangsa.cendol.dev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/syfqpie/lanun"
+  },
+  "bugs": {
+    "url": "https://github.com/syfqpie/lanun/issues"
+  },
+  "keywords": [
+    "react",
+    "next",
+    "nextjs",
+    "antarabangsa",
+    "i18n",
+    "internationalization",
+    "internalization",
+    "locale",
+    "lanun"
+  ],
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "development": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "peerDependencies": {
+    "@lanun/antarabangsa": "workspace:*",
+    "next": ">=15.0.0",
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@lanun/antarabangsa": "workspace:*",
+    "@lanun/eslint-config": "workspace:*",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.2.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^22.13.4",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^9.39.0",
+    "eslint-config-next": "^15.5.5",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-turbo": "^2.6.0",
+    "globals": "^15.14.0",
+    "jsdom": "^26.0.0",
+    "next": "^15.5.9",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tsup": "^8.5.0",
+    "typescript": "^5.8.2",
+    "typescript-eslint": "^8.46.2",
+    "vite": "^6.1.0",
+    "vite-plugin-dts": "^4.5.0",
+    "vite-tsconfig-paths": "^6.1.1",
+    "vitest": "^3.0.5"
+  }
+}

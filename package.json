@@ -4,14 +4,21 @@
   "scripts": {
     "gen:react-kit:component": "turbo gen react-kit-component",
     "build": "turbo run build",
+    "build:i18n": "pnpm build -F @lanun/antarabangsa",
+    "build:i18n-docs": "pnpm build -F @lanun/antarabangsa-docs",
+    "build:i18n-next": "pnpm build -F @lanun/antarabangsa-next",
     "build:react-kit": "pnpm build -F @lanun/react-kit",
     "dev": "turbo run dev",
+    "dev:i18n-docs": "pnpm dev -F @lanun/antarabangsa-docs",
     "dev:react-kit-docs": "pnpm dev -F @lanun/react-docs",
     "lint": "turbo run lint",
     "lint:react-kit": "pnpm lint -F @lanun/react-kit",
     "check-types": "turbo run check-types",
     "test": "turbo run test",
-    "test:react-kit": "pnpm test -F @lanun/react-kit"
+    "test:i18n": "pnpm test -F @lanun/antarabangsa",
+    "test:i18n-next": "pnpm test -F @lanun/antarabangsa-next",
+    "test:react-kit": "pnpm test -F @lanun/react-kit",
+    "start": "turbo run start"
   },
   "keywords": [],
   "author": "",
