@@ -63,7 +63,7 @@
   ],
   "sideEffects": false,
   "dependencies": {
-    "@formkit/auto-animate": "^0.8.2",
+    "@formkit/auto-animate": "^0.9.0",
     "clsx": "^2.1.1",
     "lucide-react": "^0.487.0"
   },

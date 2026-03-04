@@ -25,6 +25,12 @@
       ],
       "fumadocs-mdx:collections/*": [
         ".source/*"
+      ],
+      "@antarabangsa/*": [
+        "../../packages/antarabangsa/src/*"
+      ],
+      "@antarabangsa-next/*": [
+        "../../packages/antarabangsa-next/src/*"
       ]
     },
     "plugins": [
