@@ -32,6 +32,7 @@ export const AppLogo: FC<AppLogoProps> = ({
 	return (
 		<Image
 			suppressHydrationWarning
+			loading="eager"
 			height={height}
 			width={width}
 			className={cn('w-60 mx-auto self-center center', className)}
