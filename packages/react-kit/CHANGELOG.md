@@ -1,5 +1,12 @@
 # @lanun/react-kit
 
+## 0.0.4
+
+### Patch Changes
+
+- 49050ac: - Bumped `@formkit/auto-animate` to `0.9.0`
+- e0e53fd: setup update
+
 ## 0.0.3
 
 ### Patch Changes
