@@ -1,0 +1,18 @@
+{
+  "title": "Fumadocs UI",
+  "description": "The default theme",
+  "icon": "PanelsTopLeft",
+  "root": true,
+  "pages": [
+    "---Introduction---",
+    "index",
+    "installation",
+    "packages",
+    "how-it-works",
+    "domain-routing",
+    "---References---",
+    "routing",
+    "translation",
+    "changelogs"
+  ]
+}

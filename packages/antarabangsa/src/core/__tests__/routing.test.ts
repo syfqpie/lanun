@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 
-import { createI18nRouting } from '@/core'
-import type { Locale, RoutingConfig } from '@/core/types'
+import { createI18nRouting } from '@antarabangsa/core'
+import type { Locale, RoutingConfig } from '@antarabangsa/core/types'
 
 describe('createI18nRouting', () => {
 	const siteConfig: RoutingConfig = {

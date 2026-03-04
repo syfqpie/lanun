@@ -18,7 +18,7 @@ export default defineConfig({
 	external: ['react', 'react-dom', 'react/jsx-runtime'],
 	esbuildOptions(options) {
 		options.alias = {
-			'@': path.resolve(__dirname, 'src'),
+			'@antarabangsa-next': path.resolve(__dirname, 'src'),
 		}
 	},
 	async onSuccess() {

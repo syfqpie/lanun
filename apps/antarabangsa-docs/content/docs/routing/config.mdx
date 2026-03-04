@@ -1,0 +1,26 @@
+---
+title: Configuration
+---
+
+The routing configuration defines:
+
+- `fallbackLocale` - global default locale
+- `fallbackDomain` - domain used for orphan locales
+- `locales` - metadata for each locale
+- `domains` - domain specific allowed locales
+
+Example:
+
+```ts
+const config = {
+  fallbackLocale: 'en',
+  fallbackDomain: 'lanun.example',
+  locales: {
+    en: { code: 'en', label: 'English', active: true },
+    ms: { code: 'ms', label: 'Bahasa Malaysia', active: true }
+  },
+  domains: [
+    { domain: 'lanun.example', defaultLocale: 'en', locales: ['en', 'ms'] }
+  ]
+}
+```

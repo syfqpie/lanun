@@ -33,7 +33,7 @@
     /* alias */
     // "baseUrl": "./",
     "paths": {
-      "@/*": ["src/*"]
+      "@antarabangsa-next/*": ["src/*"]
     }
   },
   "exclude": ["dist", "node_modules"]

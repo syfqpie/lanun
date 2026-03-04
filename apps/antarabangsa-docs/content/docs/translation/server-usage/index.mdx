@@ -1,0 +1,35 @@
+---
+title: Server usage
+---
+
+On the server (e.g., in Next.js API routes or server components), you can create a translation function per request or context.
+
+```ts
+import { getTranslation } from '@lanun/antarabangsa'
+
+const locale = 'ms'
+const { t } = getTranslation(locale, translations)
+
+console.log(t('page.title', { name: 'Mat' })) // 'Hai Mat'
+```
+
+## Fallback Example
+
+If the requested locale is missing a translation, the default locale is used:
+
+```ts
+const locale = 'th'
+const { t } = getTranslation(locale, config)
+
+console.log(t('page.title', { name: 'Mat' })) // 'Hai Mat' (fallback to ms)
+```
+
+## Nested Keys & Interpolation
+
+- Keys can be nested using dot notation
+
+- Placeholders are replaced using the provided values object
+
+```ts
+t('page.title', { name: 'Alice' }) // 'Hai Alice'
+```

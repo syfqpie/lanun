@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 
-import { createTranslation } from '@/core/translation'
+import { createTranslation } from '@antarabangsa/core/translation'
 import { LocaleContext } from './context'
 
 /**

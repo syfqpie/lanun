@@ -50,7 +50,7 @@ const Dropdown: React.FC<DropdownProps> = ({
 				{isOpen && (
 					<ul
 						className={clsx(
-							'absolute left-0 mt-2 w-48 z-[5] bg-white border border-gray-200 shadow-lg',
+							'absolute left-0 mt-2 w-48 z-5 bg-white border border-gray-200 shadow-lg',
 							{
 								'rounded-lg':
 									size === 'xs' ||

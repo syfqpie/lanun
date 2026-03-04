@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 
-import type { Locale, TranslationConfig } from '@/core/types'
+import type { Locale, TranslationConfig } from '@antarabangsa/core/types'
 
 /**
  * Context value containing the active locale and translation config.
