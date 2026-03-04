@@ -1,5 +1,5 @@
-import { TranslationConfig } from '@/core/types'
-import { getByPath } from '@/utils'
+import { TranslationConfig } from '@antarabangsa/core/types'
+import { getByPath } from '@antarabangsa/utils'
 
 /**
  * Creates a translation function for a given locale.

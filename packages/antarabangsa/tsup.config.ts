@@ -48,7 +48,7 @@ export default defineConfig({
 	],
 	esbuildOptions(options) {
 		options.alias = {
-			'@': path.resolve(__dirname, 'src'),
+			'@antarabangsa': path.resolve(__dirname, 'src'),
 		}
 	},
 	async onSuccess() {
