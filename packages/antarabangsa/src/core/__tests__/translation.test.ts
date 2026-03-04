@@ -1,6 +1,9 @@
 import { describe, it, expect } from 'vitest'
 
-import { createTranslation, getTranslation } from '@antarabangsa/core/translation'
+import {
+	createTranslation,
+	getTranslation,
+} from '@antarabangsa/core/translation'
 import type { TranslationConfig } from '@antarabangsa/core/types'
 
 const config: TranslationConfig = {

@@ -1,6 +1,6 @@
 'use client'
 
-import { FC, useEffect, useState } from 'react'
+import { FC, useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import { useTheme } from 'next-themes'
 import type { ImageProps } from 'next/image'
@@ -18,14 +18,14 @@ export const AppLogo: FC<AppLogoProps> = ({
 	width = 2000,
 	...rest
 }) => {
-	const [mounted, setMounted] = useState(false)
+	const mounted = useRef(false)
 	const { resolvedTheme } = useTheme()
 
-	useEffect(() => {
-		setMounted(true)
-	}, [])
+  useEffect(() => {
+    mounted.current = true
+  }, [])
 
-	if (!mounted) return null
+  if (mounted.current === null) return null
 
 	const src = resolvedTheme === 'light' ? LOGO_LIGHT_MODE : LOGO_DARK_MODE
 

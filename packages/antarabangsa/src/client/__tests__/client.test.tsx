@@ -2,7 +2,11 @@ import React from 'react'
 import { describe, it, expect } from 'vitest'
 import { renderHook } from '@testing-library/react'
 
-import { TranslationProvider, useLocale, useTranslation } from '@antarabangsa/client'
+import {
+	TranslationProvider,
+	useLocale,
+	useTranslation,
+} from '@antarabangsa/client'
 import type { TranslationConfig } from '@antarabangsa/core/types'
 
 const config: TranslationConfig = {

@@ -15,7 +15,7 @@
     "build:docs": "storybook build --docs",
     "test": "vitest run",
     "test:watch": "vitest",
-    "lint": "eslint .",
+    "lint": "eslint \"src/**/*.{ts,tsx,js,jsx}\" \"*.{ts,mts,js,mjs}\" --max-warnings=0",
     "preview": "vite preview",
     "bump:patch": "pnpm version patch -m \"build: %s\"",
     "bump:minor": "pnpm version minor -m \"build: %s\"",

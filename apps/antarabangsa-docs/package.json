@@ -8,7 +8,7 @@
     "start": "next start",
     "types:check": "fumadocs-mdx && next typegen && tsc --noEmit",
     "postinstall": "fumadocs-mdx",
-    "lint": "eslint"
+    "lint": "eslint \"src/**/*.{ts,tsx,js,jsx}\" \"*.{ts,mts,js,mjs}\" --max-warnings=0"
   },
   "dependencies": {
     "@lanun/antarabangsa": "workspace:*",
@@ -30,7 +30,7 @@
     "@types/node": "^25.3.3",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "eslint": "^10.0.2",
+    "eslint": "^9.39.0",
     "eslint-config-next": "16.1.6",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.2.1",

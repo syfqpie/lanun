@@ -12,7 +12,7 @@
     "build": "tsup",
     "test": "vitest run",
     "test:watch": "vitest",
-    "lint": "eslint . --max-warnings=0",
+    "lint": "eslint \"src/**/*.{ts,tsx,js,jsx}\" \"*.{ts,mts,js,mjs}\" --max-warnings=0",
     "yalc:push": "pnpm build && yalc publish --push"
   },
   "license": "MIT",
