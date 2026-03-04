@@ -37,7 +37,7 @@ const routing = createI18nRouting(conf)
 export const proxy = createi18nMiddleware(routing)
 
 export const config = {
-	// Matcher ignoring `/_next/` and `/api/`
-	// You may need to adjust it to ignore static assets in `/public` folder
-	matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
-}
+  matcher: [
+    '/((?!api|_next/static|_next/image|.*\\..*).*)',
+  ],
+};
