@@ -18,7 +18,10 @@
     "test:i18n": "pnpm test -F @lanun/antarabangsa",
     "test:i18n-next": "pnpm test -F @lanun/antarabangsa-next",
     "test:react-kit": "pnpm test -F @lanun/react-kit",
-    "start": "turbo run start"
+    "start": "turbo run start",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "turbo run build && changeset publish"
   },
   "keywords": [],
   "author": "",
