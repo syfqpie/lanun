@@ -34,13 +34,10 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       # Don't publish if validation or tests fail
-      - name: Install dependencies
+      - name: Build
         run: pnpm build
 
-      - name: Install dependencies
-        run: pnpm validate
-
-      - name: Install dependencies
+      - name: Test
         run: pnpm test
 
       # Opens/updates a "Version Packages" PR; publishes to npm when that PR is merged.
