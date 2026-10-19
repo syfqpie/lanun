@@ -31,7 +31,13 @@
       ],
       "@antarabangsa-next/*": [
         "../../packages/antarabangsa-next/src/*"
-      ]
+      ],
+      "@lanun/antarabangsa": [
+        "../../packages/antarabangsa/src"
+      ],
+      "@lanun/antarabangsa-next": [
+        "../../packages/antarabangsa-next/src"
+      ],
     },
     "plugins": [
       {

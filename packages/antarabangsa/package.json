@@ -41,13 +41,13 @@
       "development": "./src/index.ts",
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
-      "require": "./dist/index.js"
+      "require": "./dist/index.cjs"
     },
     "./client": {
       "development": "./src/client/index.ts",
       "types": "./dist/client/index.d.ts",
       "import": "./dist/client/index.js",
-      "require": "./dist/client/index.js"
+      "require": "./dist/client/index.cjs"
     }
   },
   "files": [
