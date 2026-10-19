@@ -9,6 +9,7 @@ const meta: Meta<typeof Button> = {
 		variant: 'primary',
 		testId: 'ta-btn',
 		onClick: () => {
+			/* eslint-disable no-console */
 			console.log('Button clicked')
 		},
 	},

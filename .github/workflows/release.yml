@@ -1,76 +1,52 @@
-name: Publish @lanun packages
+name: Release @lanun packages
 
 on:
   push:
-    branches:
-      - main
-  workflow_dispatch:
+    branches: [main]
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+permissions:
+  contents: write
+  pull-requests: write
+  id-token: write
 
 jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
-
-    permissions:
-      contents: write # needed to push tags
-      id-token: write
-      pull-requests: write
-
+    timeout-minutes: 15
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+        uses: actions/checkout@v7
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10.20.0
+        uses: pnpm/action-setup@v6
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
-          node-version: 20
-          cache: 'pnpm'
-          registry-url: 'https://registry.npmjs.org'
+          node-version: 24
+          cache: pnpm
+          registry-url: https://registry.npmjs.org
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Create .npmrc for publish
-        run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Create Release Pull Request or Publish to npm
-        id: changesets
-        uses: changesets/action@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+      # Don't publish if validation or tests fail
       - name: Build
-        if: steps.changesets.outputs.hasChangesets == 'false'
         run: pnpm build
 
-      - name: Publish
-        uses: changesets/action@v1
-        if: steps.changesets.outputs.hasChangesets == 'false'
+      - name: Test
+        run: pnpm test
+
+      # Opens/updates a "Version Packages" PR; publishes to npm when that PR is merged.
+      - name: Release
+        uses: changesets/action@v2
         with:
-          publish: pnpm changeset publish
+          version-script: pnpm version-packages
+          publish-script: pnpm release
+          pr-title: "chore: version packages"
+          commit-message: "chore: version packages"
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-
-  # deploy-vercel:
-  #   needs: publish-npm
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - uses: actions/setup-node@v4
-  #       with:
-  #         node-version: 20
-  #     - run: npm install -g vercel
-  #     - run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
-  #     - run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
-  #     - run: vercel deploy --prod --token=${{ secrets.VERCEL_TOKEN }}
