@@ -11,13 +11,23 @@
     "lint": "eslint ."
   },
   "exports": {
+    ".": "./base.js",
     "./base": "./base.js",
     "./next": "./next.js",
+    "./only-warn": "./only-warn.js",
+    "./prettier": "./prettier.js",
     "./react": "./react.js",
+    "./stylistic": "./stylistic.js",
     "./turbo": "./turbo.js"
+  },
+  "dependencies": {
+    "@eslint/js": "^9.32.0",
+    "globals": "^16.3.0",
+    "typescript-eslint": "^8.46.2"
   },
   "peerDependencies": {
     "@next/eslint-plugin-next": ">=15.0.0",
+    "@stylistic/eslint-plugin": ">=5.0.0",
     "eslint": ">=9.0.0",
     "eslint-config-next": ">=15.0.0",
     "eslint-config-prettier": ">=10.0.0",
@@ -26,26 +36,28 @@
     "eslint-plugin-react": ">=7.0.0",
     "eslint-plugin-react-hooks": ">=5.0.0",
     "eslint-plugin-turbo": ">=2.0.0",
-    "typescript": ">=5.0.0",
-    "typescript-eslint": ">=8.0.0"
+    "prettier": ">=3.0.0",
+    "typescript": ">=5.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
-    "@eslint/js": "^9.32.0",
     "@next/eslint-plugin-next": "^15.3.0",
+    "@stylistic/eslint-plugin": "^5.6.1",
     "eslint": "^9.38.0",
     "eslint-plugin-only-warn": "^1.1.0",
-    "globals": "^16.3.0",
-    "typescript": "^5.9.2",
-    "typescript-eslint": "^8.46.2"
+    "typescript": "^5.9.2"
   },
   "peerDependenciesMeta": {
-    "@next/eslint-plugin-next": {
-      "optional": true
-    },
-    "eslint-config-next": {
-      "optional": true
-    }
+    "@next/eslint-plugin-next": { "optional": true },
+    "@stylistic/eslint-plugin": { "optional": true },
+    "eslint-config-next": { "optional": true },
+    "eslint-config-prettier": { "optional": true },
+    "eslint-plugin-only-warn": { "optional": true },
+    "eslint-plugin-prettier": { "optional": true },
+    "eslint-plugin-react": { "optional": true },
+    "eslint-plugin-react-hooks": { "optional": true },
+    "eslint-plugin-turbo": { "optional": true },
+    "prettier": { "optional": true }
   },
   "files": [
     "*.js",

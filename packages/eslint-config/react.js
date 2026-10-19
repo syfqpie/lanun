@@ -23,9 +23,6 @@ export const config = [
 		plugins: {
 			react: pluginReact,
 		},
-		rules: {
-			quotes: ['error', 'single', { allowTemplateLiterals: true }],
-		},
 	},
 	{
 		name: '@lanun/react-hooks',
