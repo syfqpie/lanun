@@ -44,7 +44,7 @@ jobs:
         run: pnpm build
 
       - name: Validate
-        run: pnpm Validate
+        run: pnpm validate
 
       - name: Test
         run: pnpm test
