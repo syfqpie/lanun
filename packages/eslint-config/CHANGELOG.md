@@ -1,5 +1,11 @@
 # @lanun/eslint-config
 
+## 0.0.5
+
+### Patch Changes
+
+- [`5519d23`](https://github.com/syfqpie/lanun/commit/5519d237055606b30ae1e1dc944d61779eefc87f) Thanks [@syfqpie](https://github.com/syfqpie)! - Added missing config
+
 ## 0.0.4
 
 ### Patch Changes
