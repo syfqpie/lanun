@@ -20,6 +20,13 @@
     "./stylistic": "./stylistic.js",
     "./turbo": "./turbo.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/syfqpie/lanun"
+  },
+  "bugs": {
+    "url": "https://github.com/syfqpie/lanun/issues"
+  },
   "dependencies": {
     "@eslint/js": "^9.32.0",
     "globals": "^16.3.0",
