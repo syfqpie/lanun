@@ -2,7 +2,7 @@
   "name": "@lanun/antarabangsa-next",
   "description": "Internationalization (i18n) library for Next.js apps",
   "private": false,
-  "version": "1.0.2",
+  "version": "1.0.3",
   "type": "module",
   "publishConfig": {
     "access": "public"
