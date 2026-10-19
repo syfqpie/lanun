@@ -1,62 +1,21 @@
 import js from '@eslint/js'
-import eslintConfigPrettier from 'eslint-config-prettier'
-import onlyWarn from 'eslint-plugin-only-warn'
-import prettierPlugin from 'eslint-plugin-prettier/recommended'
-
 import tseslint from 'typescript-eslint'
 
 /**
- * Base ESLint configs.
+ * Base ESLint configs. Contains no formatting rules; add
+ * `@lanun/eslint-config/prettier` or `@lanun/eslint-config/stylistic`.
  *
  * @type {import('eslint').Linter.Config[]}
  * */
 export const config = [
 	js.configs.recommended,
-	eslintConfigPrettier,
 	...tseslint.configs.recommended,
-	{
-		name: '@lanun/prettier-config',
-		plugins: {
-			prettier: prettierPlugin.plugins.prettier,
-		},
-		rules: {
-			...prettierPlugin.rules,
-			'prettier/prettier': [
-				'warn',
-				{
-					endOfLine: 'auto',
-				},
-			],
-		},
-	},
-	{
-		name: '@lanun/only-warn-config',
-		plugins: {
-			onlyWarn,
-		},
-	},
-	{
-		ignores: ['dist/**', 'node_modules'],
-	},
 	{
 		name: '@lanun/base',
 		rules: {
-			'comma-dangle': [
-				'warn',
-				{
-					arrays: 'always-multiline',
-					objects: 'always-multiline',
-					imports: 'always-multiline',
-					exports: 'always-multiline',
-					functions: 'always-multiline',
-				},
-			],
-			'eol-last': ['error', 'always'],
-			'quote-props': ['error', 'as-needed'],
-			'padded-blocks': ['error', { blocks: 'never' }],
-			quotes: ['error', 'single', { allowTemplateLiterals: true }],
-			semi: ['error', 'never'],
-			'template-curly-spacing': ['warn', 'never'],
+			curly: ['error', 'multi-line'],
+			'no-console': ['warn', { allow: ['warn', 'error'] }],
+			'no-debugger': 'error',
 			'@typescript-eslint/no-explicit-any': [
 				'error',
 				{
@@ -76,5 +35,9 @@ export const config = [
 				},
 			],
 		},
+	},
+	{
+		name: '@lanun/base-ignores',
+		ignores: ['**/node_modules/**', '**/dist/**', '**/.turbo/**'],
 	},
 ]

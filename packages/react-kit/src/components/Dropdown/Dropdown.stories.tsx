@@ -13,6 +13,7 @@ const meta: Meta<typeof Dropdown> = {
 		size: 'sm',
 		testId: 'ta-dropdown',
 		onChange: (val) => {
+			/* eslint-disable no-console */
 			console.log(`Option ${val} clicked`)
 		},
 	},
