@@ -13,4 +13,20 @@ export const config = [
 		semi: false,
 		quotes: 'single',
 	}),
+	{
+		name: '@lanun/stylistic-max-len',
+		rules: {
+			'@stylistic/max-len': [
+				'warn',
+				{
+					code: 120,
+					ignoreUrls: true,
+					ignoreStrings: true,
+					ignoreTemplateLiterals: true,
+					ignoreRegExpLiterals: true,
+					ignoreComments: true,
+				},
+			],
+		},
+	},
 ]
