@@ -1,5 +1,11 @@
 # @lanun/eslint-config
 
+## 0.0.6
+
+### Patch Changes
+
+- [#30](https://github.com/syfqpie/lanun/pull/30) [`18758cc`](https://github.com/syfqpie/lanun/commit/18758ccb5d708687e90a78d7f1caea1cbdbac04f) Thanks [@syfqpie](https://github.com/syfqpie)! - Add a 120-column `@stylistic/max-len` warning to the `stylistic` config.
+
 ## 0.0.5
 
 ### Patch Changes
