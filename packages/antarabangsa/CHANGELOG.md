@@ -1,5 +1,11 @@
 # @lanun/antarabangsa
 
+## 0.1.3
+
+### Patch Changes
+
+- [#28](https://github.com/syfqpie/lanun/pull/28) [`0952722`](https://github.com/syfqpie/lanun/commit/09527222aa3baa7c966adb6ebb2532f3e3f96166) Thanks [@syfqpie](https://github.com/syfqpie)! - Fix CommonJS export paths to use the .cjs builds.
+
 ## 0.1.2
 
 ### Patch Changes
